@@ -9,7 +9,7 @@ First, ensure you already have a model to apply token authentication to, for exa
 ### Setting up things
 
 1. Run `bin/rails g simple_token_auth:install` to create the initializer.
-2. Run `bin/rails g simple_token_auth user` to add token authentication field and make the user token authenticatable
+2. Run `bin/rails g simple_token_auth user` to create ApiKey model and make the user token authenticatable.
 
 The initializer likes like this:
 
