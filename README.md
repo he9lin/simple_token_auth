@@ -2,6 +2,14 @@
 
 SimpleTokenAuth is similar to [`simple_token_authentication`](https://github.com/gonzalo-bulnes/simple_token_authentication). One of the differences is that it uses Rails' `authenticate_or_request_with_http_token` method for authentication like it mentioned [here](http://blog.envylabs.com/post/75521798481/token-based-authentication-in-rails). and it plays nice with authentication libraries like Devise. See usage examples below.
 
+## Rails 5
+
+Include the following to your controller if you are using Rails::API of Rails. This will have authenticate_or_request_with_http_token available.
+
+```
+include ActionController::HttpAuthentication::Token::ControllerMethods
+```
+
 ## Usage
 
 First, ensure you already have a model to apply token authentication to, for example, a User model.
