@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = SimpleTokenAuth::VERSION
   s.authors     = ["Lin He"]
   s.email       = ["he9lin@gmail.com"]
-  s.homepage    = "https://bitbucket.org/he9lin/simple_token_auth"
+  s.homepage    = "https://github.com/he9lin/simple_token_auth"
   s.summary     = "Simple and safe token authentication library that uses Rails' `authenticate_or_request_with_http_token` method
 "
   s.description = "Simple and safe token authentication library that uses Rails' `authenticate_or_request_with_http_token` method
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", ">= 4.1.6", "<= 4.2.1"
+  s.add_dependency "rails", ">= 4.1.6"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "timecop"
