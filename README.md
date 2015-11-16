@@ -7,7 +7,22 @@ SimpleTokenAuth is similar to [`simple_token_authentication`](https://github.com
 Include the following to your controller if you are using Rails::API of Rails. This will have authenticate_or_request_with_http_token available.
 
 ```
-include ActionController::HttpAuthentication::Token::ControllerMethods
+class ApplicationController < ActionController::API
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+
+  protected
+
+  # http://stackoverflow.com/questions/17712359/authenticate-or-request-with-http-token-returning-html-instead-of-json
+  def request_http_token_authentication(realm = "Application", message = nil)
+    message ||= "HTTP Token: Access denied.\n"
+    self.headers["WWW-Authenticate"] = %(Token realm="#{realm.gsub(/"/, "")}")
+    unauthorized_error message
+  end
+
+  def unauthorized_error(message)
+    render json: {error: message}, status: :unauthorized
+  end
+end
 ```
 
 ## Usage
